@@ -1,0 +1,9 @@
+{
+  "rows_pcp_tmp": 4692,
+  "rows_extra": 4692,
+  "rows_merged": 4692,
+  "engineered_features": 38,
+  "nulls_total": 0,
+  "growing_season": "months [4, 5, 6, 7, 8, 9] (April-September)",
+  "critical_window": "months [7, 8] (July-August, R3-R6 pod set and seed fill)"
+}

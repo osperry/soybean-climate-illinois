@@ -1,0 +1,14 @@
+Attribute,Value
+Spatial unit,County (USDA NASS / Census FIPS)
+Number of counties,102
+Focal unit,"CHAMPAIGN County, FIPS 17019"
+Temporal coverage,1980-2025 (46 years)
+Panel observations,"4,459"
+Balanced-panel rule,counties with >= 42 of 46 years
+Balanced-panel size,"4,051 rows, 91 counties"
+Production source,"USDA NASS Quick Stats, SURVEY program, Period=YEAR"
+Climate source,"NOAA NCEI nClimDiv, county monthly"
+Climate resolution,monthly; county polygons pre-aggregated by NCEI
+Target variable,yield_anom = yield residual from county-specific linear trend
+Growing season,April-September
+Critical window,July-August (R3-R6 pod set and seed fill)

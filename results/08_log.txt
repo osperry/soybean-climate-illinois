@@ -1,0 +1,38 @@
+[08] features 20 | rows 4,051 | counties 91
+[08] fixed split  train 3,089 (1980-2013) val 437 test 525 (2019-2025)
+
+[08] FIXED SPLIT (test 2019-2025)
+                           model   RMSE    MAE      R2     MAPE    bias
+Baseline: trend only (anomaly=0) 4.8946 4.1192 -0.3661 100.0000 -2.5338
+               Linear Regression 4.1257 3.3378  0.0294 210.7338 -0.9618
+                           Ridge 4.1242 3.3370  0.0301 210.5584 -0.9742
+                   Random Forest 4.1365 3.3990  0.0243 153.8350 -2.0368
+               Gradient Boosting 3.9897 3.2651  0.0924 181.0078 -1.9693
+             HistGBM (XGB-class) 3.9250 3.1660  0.1215 146.2782 -1.6473
+
+[08] EXPANDING WINDOW (2001-2025, 2,317 obs)
+                           model   RMSE    MAE      R2     MAPE   bias  skill_vs_baseline_%
+               Gradient Boosting 4.8435 3.6803  0.2840 265.2620 0.9160                15.74
+             HistGBM (XGB-class) 4.8703 3.7064  0.2761 251.1897 0.9074                15.27
+                   Random Forest 4.8953 3.7226  0.2686 243.3303 0.8689                14.84
+               Linear Regression 5.0896 3.8922  0.2094 279.0178 1.3931                11.46
+                           Ridge 5.0946 3.8962  0.2078 278.5881 1.3912                11.37
+Baseline: trend only (anomaly=0) 5.7481 4.4237 -0.0084 100.0000 0.5243                 0.00
+
+[08] best model: Gradient Boosting
+
+[08] permutation importance, top 10
+      feature  importance     sd
+ pcp_critical      0.1059 0.0126
+     pcp_grow      0.0781 0.0084
+       tmax08      0.0673 0.0126
+pdsi_critical      0.0594 0.0060
+   heat_x_dry      0.0521 0.0106
+  pcp_grow_cv      0.0354 0.0036
+  tmp_grow_sd      0.0291 0.0114
+tmax_critical      0.0262 0.0037
+     tmp_grow      0.0138 0.0061
+       zndx07      0.0095 0.0039
+   figure -> fig10_model_performance.png
+   figure -> fig11_feature_importance.png
+   figure -> fig12_partial_dependence.png

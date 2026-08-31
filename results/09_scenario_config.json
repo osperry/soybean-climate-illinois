@@ -1,0 +1,29 @@
+{
+  "scenarios": {
+    "S1 Baseline": {
+      "delta_T_C": 0,
+      "delta_P_pct": 0
+    },
+    "S2 +1C": {
+      "delta_T_C": 1,
+      "delta_P_pct": 0
+    },
+    "S3 -10% precip": {
+      "delta_T_C": 0,
+      "delta_P_pct": -10
+    },
+    "S4 +1C and -10% precip": {
+      "delta_T_C": 1,
+      "delta_P_pct": -10
+    },
+    "S5 +2C": {
+      "delta_T_C": 2,
+      "delta_P_pct": 0
+    },
+    "S6 +2C and -20% precip": {
+      "delta_T_C": 2,
+      "delta_P_pct": -20
+    }
+  },
+  "disclaimer": "Sensitivity experiments. Uniform perturbations of observed climate. Not CMIP6/IPCC projections and carry no probability information."
+}

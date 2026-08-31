@@ -1,0 +1,9 @@
+{
+  "source": "USDA NASS Quick Stats",
+  "url": "https://quickstats.nass.usda.gov/",
+  "accessed": "2026-08-31",
+  "params": "source_desc=SURVEY; sector_desc=CROPS; commodity_desc=SOYBEANS; agg_level_desc=COUNTY; state_name=ILLINOIS; domain_desc=TOTAL; period=YEAR; year=1980..2025",
+  "note": "Query-tool CSV export. No API key. Period filtered to YEAR to exclude in-season forecasts and acreage revisions.",
+  "rows": 4507,
+  "recipe": "Reproduce this export:\n  1. https://quickstats.nass.usda.gov/\n  2. Program        = SURVEY\n     Sector         = CROPS\n     Commodity      = SOYBEANS\n     Data Item      = ACRES PLANTED / ACRES HARVESTED /\n                      PRODUCTION MEASURED IN BU / YIELD MEASURED IN BU / ACRE\n     Geographic Lvl = COUNTY\n     State          = ILLINOIS\n     Year           = 1980-2025\n  3. Get Data -> Spreadsheet\nProgrammatic equivalent (needs a Quick Stats key, separate from api.data.gov):\n  GET /api/api_GET/?key=KEY&source_desc=SURVEY&commodity_desc=SOYBEANS\n      &agg_level_desc=COUNTY&state_name=ILLINOIS&year__GE=1980&format=CSV\nNOTE: the 50,000-row API cap binds for multi-state pulls; use the bulk file\n      https://www.nass.usda.gov/datasets/qs.crops_<YYYYMMDD>.txt.gz instead."
+}

@@ -1,0 +1,26 @@
+{
+  "source": "NOAA NCEI nClimDiv, county-level monthly",
+  "url": "https://www.ncei.noaa.gov/pub/data/cirs/climdiv/",
+  "accessed": "2026-08-31",
+  "files": [
+    "climdiv-pcpncy-v1.0.0-20260806",
+    "climdiv-tmpccy-v1.0.0-20260806",
+    "climdiv-tmaxcy-v1.0.0-20260806",
+    "climdiv-tmincy-v1.0.0-20260806",
+    "climdiv-pdsicy-v1.0.0-20260806",
+    "climdiv-zndxcy-v1.0.0-20260806"
+  ],
+  "spatial_resolution": "county polygon (pre-aggregated by NCEI from station network)",
+  "temporal_resolution": "monthly",
+  "units": "precipitation inches; temperature degrees Fahrenheit; Palmer indices dimensionless",
+  "note": "ERA5 analogue. NCEI performs the gridding and polygon aggregation upstream, so no area-weighting step is executed in this pipeline. See README Limitations.",
+  "fixed_width_layout": {
+    "state_code": "cols 1-2 (Illinois=11)",
+    "county_fips": "cols 3-5",
+    "element": "cols 6-7",
+    "year": "cols 8-11",
+    "months": "12 fields of width 7",
+    "missing": "values <= -99 treated as null"
+  },
+  "recipe": "Reproduce:\n  base=https://www.ncei.noaa.gov/pub/data/cirs/climdiv/\n  for f in climdiv-pcpncy climdiv-tmpccy climdiv-tmaxcy climdiv-tmincy \\\n           climdiv-pdsicy climdiv-zndxcy ; do\n      curl -O ${base}${f}-v1.0.0-20260806\n  done\nFilter lines beginning '11' for Illinois. Version suffix changes monthly;\nlist the directory to get the current one."
+}

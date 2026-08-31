@@ -1,0 +1,33 @@
+{
+  "best_model": "Gradient Boosting",
+  "features": [
+    "pcp_critical",
+    "pcp_grow",
+    "pcp08",
+    "pcp07",
+    "pcp_win",
+    "pcp_grow_cv",
+    "tmax_critical",
+    "tmax08",
+    "tmp_grow",
+    "tmp_grow_sd",
+    "tmin10",
+    "zndx08",
+    "zndx07",
+    "pdsi08",
+    "pdsi_critical",
+    "heat_x_dry",
+    "hot_month_count",
+    "dry_month_count",
+    "climate_normal_pcp",
+    "climate_normal_tmax"
+  ],
+  "target": "yield_anom",
+  "seed": 42,
+  "fixed_split": {
+    "train": "1980-2013",
+    "validation": "2014-2018",
+    "test": "2019-2025"
+  },
+  "expanding_window": "2001-2025 rolling origin"
+}

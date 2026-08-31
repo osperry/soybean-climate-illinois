@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+title: Soybean Yield and Climate Variability in Illinois, 1980-2025
+message: If you use this dataset or pipeline, please cite it.
+type: dataset
+authors:
+  - family-names: Perry
+    given-names: Oric
+abstract: >-
+  County-level panel analysis of the association between climate variability and
+  soybean yield across 102 Illinois counties, 1980-2025, with Champaign County as
+  the focal unit. Combines USDA NASS Quick Stats production data with NOAA NCEI
+  nClimDiv county monthly climate. Includes panel fixed-effects models, machine
+  learning under strict temporal validation, county climate-sensitivity ranking,
+  and climate perturbation sensitivity experiments.
+keywords:
+  - agriculture
+  - climate
+  - soybean
+  - panel data
+  - Illinois
+license: MIT
+date-released: 2026-08-31

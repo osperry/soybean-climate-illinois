@@ -1,0 +1,19 @@
+{
+  "production_rows": 4459,
+  "climate_rows": 4692,
+  "merged_rows": 4459,
+  "unmatched_climate": 0,
+  "counties": 102,
+  "years": 46,
+  "min_years_rule": 42,
+  "counties_in_balanced_panel": 91,
+  "rows_in_balanced_panel": 4051,
+  "focal_county": "CHAMPAIGN",
+  "focal_rows": 44,
+  "focal_year_range": [
+    1980,
+    2023
+  ],
+  "trend_slope_min": 0.29,
+  "trend_slope_max": 0.846
+}

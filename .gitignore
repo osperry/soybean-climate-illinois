@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Trained model binaries: large and fully regenerable by running the scripts
+models/*.pkl
+
+# OS
+.DS_Store
+Thumbs.db

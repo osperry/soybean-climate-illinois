@@ -1,0 +1,48 @@
+{
+  "provenance": {
+    "production": {
+      "source": "USDA NASS Quick Stats",
+      "url": "https://quickstats.nass.usda.gov/",
+      "accessed": "2026-08-31",
+      "params": "source_desc=SURVEY; sector_desc=CROPS; commodity_desc=SOYBEANS; agg_level_desc=COUNTY; state_name=ILLINOIS; domain_desc=TOTAL; period=YEAR; year=1980..2025",
+      "note": "Query-tool CSV export. No API key. Period filtered to YEAR to exclude in-season forecasts and acreage revisions."
+    },
+    "climate": {
+      "source": "NOAA NCEI nClimDiv, county-level monthly",
+      "url": "https://www.ncei.noaa.gov/pub/data/cirs/climdiv/",
+      "accessed": "2026-08-31",
+      "files": [
+        "climdiv-pcpncy-v1.0.0-20260806",
+        "climdiv-tmpccy-v1.0.0-20260806",
+        "climdiv-tmaxcy-v1.0.0-20260806",
+        "climdiv-tmincy-v1.0.0-20260806",
+        "climdiv-pdsicy-v1.0.0-20260806",
+        "climdiv-zndxcy-v1.0.0-20260806"
+      ],
+      "spatial_resolution": "county polygon (pre-aggregated by NCEI from station network)",
+      "temporal_resolution": "monthly",
+      "units": "precipitation inches; temperature degrees Fahrenheit; Palmer indices dimensionless",
+      "note": "ERA5 analogue. NCEI performs the gridding and polygon aggregation upstream, so no area-weighting step is executed in this pipeline. See README Limitations."
+    },
+    "geography": {
+      "source": "USDA NASS county ANSI (FIPS) codes and Agricultural Statistics Districts",
+      "note": "fips5 = '17' + county_ansi. Joins to Census TIGER."
+    }
+  },
+  "growing_season": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "critical_window": [
+    7,
+    8
+  ],
+  "rows": 4459,
+  "cols": 90,
+  "counties": 102,
+  "focal": "CHAMPAIGN"
+}
