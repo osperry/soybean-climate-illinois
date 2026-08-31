@@ -1,0 +1,21 @@
+{
+  "test": "Does the unexplained 2003 shortfall carry the geographic signature of a northern-origin biotic driver?",
+  "discriminator": "Buckthorn, the soybean aphid overwintering host, is concentrated north of 41 N (Tilmon et al., JIPM 2011).",
+  "result_2003_largest_unexplained": {
+    "rank": 1,
+    "of": 46,
+    "mean_residual_bu_ac": -3.427
+  },
+  "r_lat_raw_anomaly_2003": -0.775,
+  "r_lat_residual_2003": -0.124,
+  "rank_of_2003_by_abs_lat_residual_corr": 33,
+  "NS_residual_gap_2003": 1.719,
+  "r_lat_raw_anomaly_1988_pre_aphid": -0.655,
+  "aphid_era_shift": {
+    "pre2000_mean_gap": 0.049,
+    "post2000_mean_gap": -0.045,
+    "welch_t": 0.205,
+    "p_value": 0.8385
+  },
+  "verdict": "NOT SUPPORTED. The northern concentration in 2003 is explained by climate. The residual shows no latitude gradient, the north-south residual gap has the wrong sign, and there is no aphid-era shift. 2003 remains the largest unexplained shortfall, but its geography is not diagnostic of a northern-origin driver."
+}

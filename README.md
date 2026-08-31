@@ -143,11 +143,24 @@ But gradient boosting beats ridge regression by only **4.9%**. Most of the avail
 
 ### 2003 defeats the climate model
 
-Decomposing predictions by year: 1988 is explained to **88%**, 2012 to **41%**, and 2003 to only **15%**.
+Decomposing predictions by year: 1988 is explained to **88%**, 2012 to **41%**, and 2003 to only **15%**. At **−3.43 bu/acre**, 2003 is the **largest unexplained shortfall of all 46 years, rank 1 of 46**.
 
-Statewide August PDSI in 2003 was slightly positive and rainfall near normal, yet yield fell 8.5 bu/acre below trend. Northwest Illinois lost 18.3 bu/acre. The East district lost 15.1 **with a positive moisture index**. 2003 contributed 14 of the 39 observations exceeding three standard deviations in the entire panel.
+Statewide August PDSI in 2003 was slightly positive and rainfall near normal, yet yield fell 8.5 bu/acre below trend. 2003 contributed 14 of the 39 observations exceeding three standard deviations in the entire panel.
 
-A non-climatic driver is indicated. Insect pressure is the standard candidate for that year in the upper Midwest and the northern concentration fits, but **this analysis did not test it** and it should be checked against extension records before anyone asserts it.
+**The obvious hypothesis fails its test.** 2003 was a documented severe soybean aphid outbreak year in the North Central region, with populations exceeding 1,000 per plant and 40% yield loss recorded at those densities ([Ragsdale et al., *J. Integr. Pest Manag.* 2012](https://academic.oup.com/jipm/article/3/1/E1/808601)). The aphid overwinters on buckthorn, which is concentrated **north of 41°N** ([Tilmon et al., *J. Integr. Pest Manag.* 2011](https://academic.oup.com/jipm/article/2/2/A1/860557)). Illinois straddles that line, which makes the hypothesis falsifiable. It does not survive:
+
+| Test | Result | Verdict |
+| --- | --- | --- |
+| Raw 2003 anomaly vs county latitude | r = **−0.775** | Strong northern concentration |
+| **Residual** after climate is removed vs latitude | r = **−0.124** | Gradient is climate, not residual |
+| 2003 rank by \|r(lat, residual)\| | **33 of 46** | Unremarkable |
+| North (≥41°N) minus South residual gap, 2003 | **+1.72** | **Wrong sign.** North did better |
+| Same raw gradient in 1988, before the aphid existed in North America | r = −0.655 | Not diagnostic |
+| Aphid-era shift in N-S residual gap, pre vs post 2000 | t = 0.205, **p = 0.84** | No effect |
+
+The northern concentration in 2003 is real but **fully accounted for by climate**: northwestern Illinois had a genuine August moisture deficit that year. What remains unexplained is spatially uniform, which is the opposite of what a northern-origin pest would produce.
+
+So the finding is narrower and sharper than a pest attribution: **2003 is the largest unexplained shortfall in the record, and the most plausible explanation does not fit its geography.** The cause remains open. Test details in [`results/table10_aphid_hypothesis_test.csv`](results/table10_aphid_hypothesis_test.csv) and [`results/12_aphid_hypothesis_test.json`](results/12_aphid_hypothesis_test.json).
 
 ### Other limitations
 

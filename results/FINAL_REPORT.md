@@ -376,11 +376,30 @@ The design is observational panel data. County and year fixed effects absorb tim
 
 The correct statement of the finding is therefore: **higher July-August temperatures and lower July-August moisture were statistically associated with lower soybean yield after controlling for county and year fixed effects, and this association is robust across thirteen specifications.** It is not: temperature caused yield to decline.
 
-### 5.3 The 2003 anomaly
+### 5.3 The 2003 anomaly, and a hypothesis that fails its test
 
-One year resists climate explanation entirely. Decomposing the climate model's predictions by year, 1988 is explained to 88% and 2012 to 41%, but **2003 is explained to only 15%**. Statewide August PDSI in 2003 was slightly positive and precipitation near normal, yet yield fell 8.5 bu/acre below trend. The damage was regionally concentrated: Northwest Illinois lost 18.3 bu/acre while East district lost 15.1 with a *positive* Palmer Z-index. 2003 contributed 14 of the 39 observations exceeding three standard deviations in the entire panel.
+One year resists climate explanation entirely. Decomposing the climate model's predictions by year, 1988 is explained to 88% and 2012 to 41%, but **2003 is explained to only 15%**. At a mean residual of **-3.43 bu/acre it is the largest unexplained shortfall in the record, rank 1 of 46 years.** Statewide August PDSI in 2003 was slightly positive and precipitation near normal, yet yield fell 8.5 bu/acre below trend. 2003 contributed 14 of the 39 observations exceeding three standard deviations in the entire panel.
 
-A non-climatic driver is indicated. Insect pressure is the standard candidate for that year in the upper Midwest and the northern geographic concentration is consistent with it, but **that attribution is not tested by this analysis and should be verified against extension records before being asserted**. What the data supports is narrower and still consequential: a large structural miss exists in 2003, and any validation window containing it penalises the model for a cause it does not observe.
+The damage was regionally concentrated: Northwest Illinois lost 18.3 bu/acre while East district lost 15.1 with a positive Palmer Z-index.
+
+**The obvious explanation was tested and does not hold.** 2003 is a documented severe soybean aphid outbreak year in the North Central region, with populations exceeding 1,000 per plant and 40% yield loss recorded at those densities (Ragsdale et al., *Journal of Integrated Pest Management*, 2012). The soybean aphid overwinters as eggs on common buckthorn, *Rhamnus cathartica*, which is concentrated **north of 41 degrees latitude** at densities above 10,000 per acre (Tilmon et al., *Journal of Integrated Pest Management*, 2011). Illinois straddles that line, spanning 37.2 to 42.5 degrees, which makes the hypothesis falsifiable against this panel. Five tests were run.
+
+| Test | Result | Interpretation |
+|---|---|---|
+| Raw 2003 anomaly against county latitude | r = -0.775 | Strong northern concentration, consistent with the hypothesis |
+| Model **residual** against latitude, 2003 | r = -0.124 | The gradient is climate, not the unexplained part |
+| Rank of 2003 among 46 years by absolute latitude-residual correlation | **33 of 46** | Unremarkable |
+| North (>= 41 N) minus South residual gap, 2003 | **+1.72** | **Wrong sign.** The north performed better once climate is removed |
+| Same raw gradient in 1988, before the aphid existed in North America | r = -0.655 | A northern gradient in a bad year is not diagnostic |
+| Aphid-era shift in the north-south residual gap, pre- versus post-2000 | Welch t = 0.205, **p = 0.84** | No detectable effect |
+
+The northern concentration in 2003 is real, but it is **fully accounted for by climate**. Northwestern Illinois recorded a genuine August moisture deficit that year (district mean Palmer Z-index -2.60). What remains unexplained after the climate model is spatially uniform, which is the opposite of the signature a northern-origin pest would leave. The two other documented outbreak years behave inconsistently as well: 2005 shows a northern residual skew of -1.77, which is in the predicted direction, while 2001 shows -0.82 and 2003 shows the wrong sign entirely. None of the three ranks among the five most northern-skewed years on record, which are 1996, 2000, 2002, 2007 and 1982.
+
+The finding is therefore narrower than a pest attribution and, in a way, more useful: **2003 is the largest unexplained shortfall in 46 years, and the most plausible candidate explanation does not match its geography.** The cause remains open. A definitive test would require county-level aphid scouting records or insecticide application data from the 2003 season, neither of which is in this dataset.
+
+This is also a caution about the class of explanation. A documented event that coincides in time with an anomaly, and appears to match its geography, can still fail once the climate signal is removed from that geography. The raw spatial pattern looked like confirmation. It was not.
+
+Supporting output: `results/table10_aphid_hypothesis_test.csv` and `results/12_aphid_hypothesis_test.json`.
 
 ### 5.4 Comparison with expectations from the literature
 
@@ -423,6 +442,8 @@ The estimated marginal effect of -0.66 bu/acre per °F, the nonlinear precipitat
 **4. Which counties are most vulnerable?** Sensitivity varies more than sevenfold, from 0.47 bu/acre per standard deviation of moisture in Mercer County to 3.60 in Clay County. Vulnerability concentrates in the southern and southeastern districts and correlates negatively with baseline yield (-0.512), so exposure is highest where the buffer is thinnest. Champaign sits at the 42nd percentile, less exposed than the state average.
 
 **5. Does climate improve prediction?** Yes. Climate models beat a trend-only baseline by 15.7% in RMSE under expanding-window validation and by 19.8% under the fixed 2019-2025 test split. But the increment from algorithm sophistication is small: gradient boosting beats ridge regression by only 4.9%, so most of the signal is linear once the correct nonlinear terms are specified.
+
+**5b. Can the largest anomaly be attributed?** No. 2003 is the largest unexplained shortfall in the record at -3.43 bu/acre, rank 1 of 46. The documented 2003 soybean aphid outbreak was tested as a candidate using the buckthorn 41-degree-latitude threshold and **rejected**: the northern concentration is fully explained by climate, the residual carries no latitude gradient (r = -0.124), the north-south residual gap has the wrong sign (+1.72), and there is no aphid-era shift (p = 0.84). The cause remains open.
 
 **6. Are results robust?** Yes. The sign and significance of the temperature effect survive all thirteen checks, including dropping the balance rule, trimming extreme years, splitting the sample by period, changing the target to logs, levels and growth rates, and substituting alternative climate indicators. Removing 1988, 2003 and 2012 halves the magnitude, which confirms that extreme years carry a disproportionate share of a nonlinear damage function.
 
